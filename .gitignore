@@ -1,0 +1,10 @@
+# Archivos del sistema y temporales
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.tmp
+*.log
+
+# Entornos virtuales o dependencias que pudieran colarse
+.venv/
+node_modules/
