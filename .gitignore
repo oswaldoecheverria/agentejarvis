@@ -4,7 +4,18 @@ Desktop.ini
 $RECYCLE.BIN/
 *.tmp
 *.log
+.DS_Store
 
 # Entornos virtuales o dependencias que pudieran colarse
 .venv/
 node_modules/
+dist/
+.pnpm-store/
+
+# Cache temporal de navegador de pruebas
+scratch/edge-temp/
+
+# Variables de entorno y credenciales
+.env
+.env.*
+!.env.example
