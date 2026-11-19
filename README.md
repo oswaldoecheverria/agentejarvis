@@ -34,7 +34,11 @@ agentejarvis/
 │   ├── hallmark/              ← Diseño web de autor Anti-AI-Slop
 │   ├── motion-designer/       ← Animaciones y micro-interacciones (Emil Kowalski)
 │   ├── ponytail/              ← Minimalismo YAGNI
-│   └── ui-ux-master/          ← Sistemas de diseño visual moderno
+│   ├── ui-ux-master/          ← Sistemas de diseño visual moderno
+│   └── feature-memory/        ← Memoria funcional, ingeniería inversa y bitácora de negocio
+├── memory/
+│   ├── catalog.json           ← Índice global de funcionalidades y opciones aprendidas
+│   └── features/              ← Fichas multivariante de negocio por dominio
 ├── rules/
 │   └── AGENTS.template.md     ← Plantilla base de AGENTS.md para nuevos proyectos
 ├── scripts/
@@ -62,7 +66,7 @@ irm https://raw.githubusercontent.com/oswaldoecheverria/agentejarvis/main/script
 Cuando identifiques una nueva necesidad recurrente:
 
 ```powershell
-F:\proyectos\agentepersonal\scripts\new-skill.ps1 -SkillName "mi-nueva-skill"
+F:\proyectos\agentejarvis\scripts\new-skill.ps1 -SkillName "mi-nueva-skill"
 ```
 
 Esto crea el scaffold en `skills/mi-nueva-skill/SKILL.md` listo para editar.
@@ -72,27 +76,27 @@ Luego haz commit y push, y estará disponible para todos los proyectos futuros.
 
 ## 🌐 Bootstrap desde GitHub (nuevo proyecto, nueva PC)
 
-Para instalar el agente en un proyecto nuevo sin tener `agentepersonal` clonado:
+Para instalar el agente en un proyecto nuevo sin tener `agentejarvis` clonado:
 
 ```powershell
-# 1. Clonar solo agentepersonal temporalmente
-git clone --depth=1 https://github.com/<tu-usuario>/agentepersonal.git C:\Temp\agentepersonal
+# 1. Clonar solo agentejarvis temporalmente
+git clone --depth=1 https://github.com/oswaldoecheverria/agentejarvis.git C:\Temp\agentejarvis
 
 # 2. Instalar en el proyecto
-C:\Temp\agentepersonal\scripts\setup-project.ps1 -ProjectPath "F:\proyectos\mi-proyecto"
+C:\Temp\agentejarvis\scripts\setup-project.ps1 -ProjectPath "F:\proyectos\mi-proyecto"
 
 # 3. Limpiar
-Remove-Item C:\Temp\agentepersonal -Recurse -Force
+Remove-Item C:\Temp\agentejarvis -Recurse -Force
 ```
 
 ---
 
 ## 🔄 Mantener actualizado un proyecto existente
 
-Si agregas nuevas skills a `agentepersonal` y quieres actualizarlas en un proyecto que ya tiene el agente:
+Si agregas nuevas skills a `agentejarvis` y quieres actualizarlas en un proyecto que ya tiene el agente:
 
 ```powershell
-F:\proyectos\agentepersonal\scripts\setup-project.ps1 -ProjectPath "F:\proyectos\mi-proyecto" -UpdateSkills
+F:\proyectos\agentejarvis\scripts\setup-project.ps1 -ProjectPath "F:\proyectos\mi-proyecto" -UpdateSkills
 ```
 
 ---
@@ -107,7 +111,7 @@ F:\proyectos\agentepersonal\scripts\setup-project.ps1 -ProjectPath "F:\proyectos
 | `ui-ux-master` | Enciclopedia de estilos: Glassmorphism, Neumorphism, Claymorphism, Spatial UI, etc. |
 | `hallmark` | Diseño web de autor y escudo Anti-AI-Slop (reglas The Floor, maquetación de landings y auditoría visual) |
 | `motion-designer` | Animaciones y física de micro-interacciones refinadas (<300ms, estilo Emil Kowalski) |
-| `ui-vault` | Bóveda privada local y galería visual (`http://localhost:3333`): guarda, clasifica y reutiliza componentes web modernos (Tailwind/React) con atribución de origen y protocolo de auditoría trimestral |
+| `feature-memory` | Memoria funcional viva: bitácora de proyecto, ingeniería inversa, reutilización de opciones y manuales |
 | `speckit-specify` | Tienes una idea, quieres convertirla en spec.md |
 | `speckit-plan` | Tienes spec.md, quieres el plan de arquitectura |
 | `speckit-tasks` | Tienes plan.md, quieres el desglose de tareas |

@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "lastUpdated": "2026-11-19",
+  "description": "Almacén maestro modular: Sistema > Módulos > Características atómicas con recetas de ensamble.",
+  "totalModules": 2,
+  "totalFeatures": 7,
+  "modules": [
+    {
+      "id": "mod-citas-reservas",
+      "name": "Citas y Reservas",
+      "file": "modules/citas.md",
+      "origin": "erikasalud",
+      "status": "PRODUCCION",
+      "features": [
+        {
+          "id": "citas-disponibilidad-franjas",
+          "name": "Cálculo de Disponibilidad de Franjas en Tiempo Real",
+          "file": "features/citas/disponibilidad-franjas.md"
+        },
+        {
+          "id": "citas-reserva-asistida",
+          "name": "Reserva Asistida sin Login Obligatorio",
+          "file": "features/citas/reserva-asistida.md"
+        },
+        {
+          "id": "citas-sync-calendarios",
+          "name": "Sincronización Dual de Calendarios (Google Calendar e iCal)",
+          "file": "features/citas/sync-calendarios.md"
+        },
+        {
+          "id": "citas-confirmacion-whatsapp",
+          "name": "Confirmación Asistida vía WhatsApp",
+          "file": "features/citas/confirmacion-whatsapp.md"
+        }
+      ]
+    },
+    {
+      "id": "mod-facturacion-sri",
+      "name": "Facturación Electrónica",
+      "file": "modules/facturacion.md",
+      "origin": "erikasalud",
+      "status": "PRODUCCION",
+      "features": [
+        {
+          "id": "facturacion-firma-xades-bes",
+          "name": "Firma Electrónica XAdES-BES para Comprobantes SRI",
+          "file": "features/facturacion/firma-xades-bes.md"
+        },
+        {
+          "id": "facturacion-conexion-soap-sri",
+          "name": "Transmisión y Autorización SOAP con el SRI",
+          "file": "features/facturacion/conexion-soap-sri.md"
+        },
+        {
+          "id": "facturacion-generacion-ride-pdf",
+          "name": "Generación Automática del RIDE en PDF",
+          "file": "features/facturacion/generacion-ride-pdf.md"
+        }
+      ]
+    }
+  ]
+}

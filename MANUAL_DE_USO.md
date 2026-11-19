@@ -31,7 +31,7 @@ El agente funciona bajo una arquitectura de **3 capas complementarias**:
 ```
 
 ### ¿Qué es el "Progressive Disclosure"?
-En Antigravity, el agente no carga todo el texto de las 16 skills a la vez porque eso consumiría miles de tokens en cada mensaje. Solo tiene presente el **nombre y descripción** de cada una. Cuando tú mencionas un tema (ejemplo: *"revisa con ponytail"* o *"diseña con neumorfismo"*), el agente abre el manual de esa skill específica, lo lee, ejecuta la tarea y lo vuelve a cerrar.
+En Antigravity, el agente no carga todo el texto de las 17 skills a la vez porque eso consumiría miles de tokens en cada mensaje. Solo tiene presente el **nombre y descripción** de cada una. Cuando tú mencionas un tema (ejemplo: *"revisa con ponytail"* o *"diseña con neumorfismo"*), el agente abre el manual de esa skill específica, lo lee, ejecuta la tarea y lo vuelve a cerrar.
 
 ---
 
@@ -41,8 +41,9 @@ Todo proyecto que crees con este agente debe seguir esta arquitectura modular:
 
 ```text
 mi-proyecto/
-├── .agents/                      ← Motor del Agente (16 skills activas)
+├── .agents/                      ← Motor del Agente (17 skills activas)
 ├── AGENTS.md                     ← Reglas del proyecto, Efecto Glass, Ponytail y Arquitectura
+├── BITACORA_FUNCIONAL.md         ← Inventario vivo de módulos, roles y flujos de usuario (feature-memory)
 ├── BITACORA_PROYECTO.md          ← Historial de avances, credenciales y arquitectura
 ├── docker-compose.yml            ← Orquestación de desarrollo local
 ├── docker-compose.prod.yml       ← Orquestación de producción para VPS
@@ -110,6 +111,11 @@ Tus herramientas están divididas en 4 cuadrantes funcionales:
 | :--- | :--- | :--- |
 | **`devops-mentor`** | Supervisa el flujo Git (Trunk-Based), aconseja commits semánticos (`feat:`, `fix:`) y guía el despliegue al servidor VPS paso a paso sin fallos. | Al cerrar una etapa de trabajo o cuando quieras subir cambios a producción. |
 
+### Cuadrante E: Memoria Funcional Viva y Bitácora de Negocio
+| Skill | Propósito Central | ¿En qué momento llamarla? |
+| :--- | :--- | :--- |
+| **`feature-memory`** | Memoria acumulativa entre proyectos: audita sistemas existentes (ingeniería inversa), mantiene la doble bitácora (local vs global), detecta módulos ya creados para sugerir opciones/specs, y genera manuales de usuario/sistema. | Al auditar un proyecto existente, al cerrar la jornada para actualizar la bitácora, al pedir una función nueva o al redactar manuales. |
+
 ---
 
 ## 🔄 3. El Proceso de Trabajo Recomendado (Paso a Paso)
@@ -157,6 +163,9 @@ El agente entiende lenguaje natural, pero estas palabras clave activan inmediata
 | **Crear la lista de tareas** | *"Genera el desglose de tareas (tasks.md)"* | `speckit-tasks` |
 | **Construir el sistema planificado** | *"Implementa las tareas de tasks.md"* | `speckit-implement` |
 | **Hacer commit seguro** | *"¿Hacemos commit de lo avanzado?"* | `devops-mentor` |
+| **Auditar funciones de un proyecto existente** | *"Audita este proyecto y extrae su bitácora funcional"* | `feature-memory` |
+| **Cerrar jornada y actualizar bitácora** | *"Actualiza la bitácora con lo hecho hoy"* | `feature-memory` |
+| **Generar manual de usuario o sistema** | *"Genera el manual de usuario de esta web"* | `feature-memory` |
 
 ---
 
@@ -212,32 +221,6 @@ Al ver que todo funciona en `localhost`:
 3. **Audita antes de commitear:** Usa `ponytail-review` con frecuencia. Mantendrá tu base de código pequeña, limpia y fácil de entender.
 4. **Para proyectos nuevos:** Recuerda que puedes clonar toda esta inteligencia a cualquier carpeta ejecutando:
    ```powershell
-   F:\proyectos\agentepersonal\scripts\setup-project.ps1 -ProjectPath "F:\proyectos\mi-nuevo-proyecto"
+   F:\proyectos\agentejarvis\scripts\setup-project.ps1 -ProjectPath "F:\proyectos\mi-nuevo-proyecto"
    ```
 
----
-
-## 🏛️ 7. UI Vault — Bóveda Privada Local y Galería de Diseño
-
-Tu repositorio personal de diseño para **guardar, clasificar, previsualizar y reutilizar** componentes modernos (Tailwind CSS, React, Next.js) sin gastar tokens ni depender de internet.
-
-### 🌐 Cómo ver tu galería local:
-```powershell
-# Iniciar visor local en http://localhost:3333
-F:\proyectos\agentepersonal\scripts\start-vault.ps1
-
-# Detener visor local
-F:\proyectos\agentepersonal\scripts\stop-vault.ps1
-```
-
-### 🎯 Los 4 Flujos Principales:
-1. **Ingesta a Demanda:**
-   - Tú dices: *"Agente, revisa `https://magicui.design` y guarda los componentes gratuitos que encuentres"*.
-   - El agente extrae el código, limpia las dependencias innecesarias, lo clasifica (Hero, Slider, Bento Card, etc.), guarda el archivo en `vault/components/` y registra la URL de la web original.
-2. **Detección en Tiempo de Programación:**
-   - Mientras programas en cualquier proyecto (ej. `erikasalud`), si el agente detecta que vas a crear un Hero o un Slider, te preguntará activamente:
-     > *"Noto que estamos diseñando un componente [Hero/Slider]. ¿Deseas que consulte nuestra biblioteca privada (`ui-vault`) o encendemos el visor local en `http://localhost:3333`?"*
-3. **Auditoría Trimestral (Consentimiento Estricto):**
-   - El agente registra cuándo se revisó cada web en `vault/sources.json`. Cada 90 días (3 meses), te avisará pasivamente para pedirte autorización antes de volver a escanearlas. **Nunca navegará sin tu permiso.**
-4. **Ahorro de Espacio y Eliminación:**
-   - Desde la web local (`http://localhost:3333`) puedes probar los componentes en vivo, copiar su código con un clic o borrarlos del disco permanentemente pulsando el icono de papelera.

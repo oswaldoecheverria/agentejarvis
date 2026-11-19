@@ -30,6 +30,7 @@
   - Todo proyecto full-stack debe construirse bajo la siguiente estructura modular:
     ```text
     {{PROJECT_NAME}}/
+    ├── BITACORA_FUNCIONAL.md         # Inventario vivo de funcionalidades, roles y flujos de usuario
     ├── backend/                      # Monolito Modular (Django 5.2 / Django Ninja / uv)
     │   ├── config/                   # settings/ (base.py, local.py, production.py), urls.py, api.py
     │   ├── core/                     # Utilidades transversales (imágenes, auth, RBAC, health, schemas)

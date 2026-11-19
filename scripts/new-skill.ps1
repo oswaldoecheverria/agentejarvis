@@ -1,6 +1,6 @@
-<#
+﻿<#
 .SYNOPSIS
-    Crea el scaffold de una nueva skill en agentepersonal.
+    Crea el scaffold de una nueva skill en agentejarvis.
 .PARAMETER SkillName
     Nombre de la skill en minúsculas y con guiones (ej: "mi-nueva-skill").
 .EXAMPLE
